@@ -7,3 +7,5 @@ Corso di Programmazione dell'Università di Bologna
 A.A. 2018/2019
 
 Componenti Gruppo:
+Thomas Cupertino
+Lorenzo Castelli
