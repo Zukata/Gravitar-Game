@@ -1,0 +1,83 @@
+asAstronave
+
+
+//Creazione classe dell'astronave con protetti le coordinate dell'astronave 
+class astronave{	
+protected:
+	int astrox;
+	int astroy;
+	
+
+public:
+
+astronave astronave(){					 
+	astrox = 0;
+	astroy = 0;
+}
+
+astronave astronave(int x, int y){					
+	this.astrox = x;
+	this.astroy = y;
+}
+
+void raggiotraente(){
+	int raggioy=astroy--;
+	int raggiox=astrox--;
+	cout << "/" << " " << "\";
+	raggioy--;
+	raggiox--;
+	cout << "/" << "  " << "\";
+}
+
+
+class movimento: public astronave{
+	private:
+	bool su
+	bool giu
+	bool sx
+	bool dx;
+public:
+	void idle(){
+		su=this.su
+		giu=this.giu
+		sx=this.sx
+		dx=this.dx
+	}
+
+void movsu(){
+		cout >> "A";
+		su=true;
+		giu=false;
+		sx=false;
+		dx=false;
+	}
+void movgiu(){
+		cout >> "V";
+		su=false;
+		giu=true;
+		sx=false;
+		dx=false;
+	}
+
+
+
+
+
+void movsx(){
+		cout >> "<<";
+		su=false;
+		giu=false;
+		sx=true;
+		dx=false;
+	}
+
+
+
+
+void movdx(){
+		cout >> ">>";
+		su=false;
+		giu=false;
+		sx=false;
+		dx=true;
+	}

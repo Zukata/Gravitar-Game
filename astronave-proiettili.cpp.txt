@@ -1,0 +1,65 @@
+//INSERIMENTO ASTRONAVE
+//
+//
+//Inserimento dell'astronave nella MatriceSchermo
+//NB xAttuale NON è la x dell'astronave, bensì della colonna all'estrema
+//   sx della schermata all'interno dell'ArrayMappa
+//
+//   xAttuale ed yAttuale sono entrambi attributi di Astronave
+//	 xSchermo è la distanza costande dell'astronave dalla xAttuale
+//Il primo if verifica un impatto con un elemento dello scenario
+if (MatriceSchermo[xAttuale + xSchermo][yAttuale] != NULL) {decrementa vita;}
+//NB Lo schianto contro il terreno porta a morte imminente? se -, verificare
+//   che l'astronave non sia sotto la superficie)
+MatriceSchermo[xAttuale + xSchermo][yAttuale] = /*carattere identificativo astronave*/;
+ 
+
+//PROIETTILI
+//Zang tumb tumb
+//
+//Memorizzazione dei proiettili in una struttura che si resetta ad ogni entrata/uscita nel mondo,
+//a differenza dell'ArrayMappa
+//Lo stesso per bunker ed astronave
+
+//Ogni sparo accoda un nuovo elemento alla MappaProiettili
+
+struct Proiettile {
+	int ascissa;					//Array dinamico, a differenza di ArrayMappa: la x va esplicata
+	int ordinate;
+	char origineDelFuoco;			//Chi ha esploso il colpo?
+	bool colpitoQualcosa;			//Sto colpendo qualcosa? 
+}									//NB Il COSA ho colpito è determinato da funzioni ausiliarie
+
+Proiettile MappaProiettili[]
+
+//PROIETTILI BUNKER:
+//Esistono 3 possibili traiettorie: y=k, y=x, y=-x
+//tr1: proiettile.ascissa++
+//tr2: proiettile.ascissa++; proiettile.ordinata=proiettile.ascissa
+//tr3: proiettile.ascissa--; proiettile.ascissa++;
+
+//PROIETTILI ASTRONAVE:
+//4 possibili traiettorie: x++, x--, y++, y--
+//tr1: proiettile.ascissa++
+//tr2: proiettile.ascissa--
+//tr3: proiettile.ordinata++
+//tr4: proiettile.ordinata--
+
+
+//COLLISIONI 
+//NB L'essere o meno di una collisione è un campo della struttura Proiettile
+//   che determina se l'attuale riquadro di un proiettile sia già occupato 
+//   1. bool [coordinate astronave = coordinate proiettile] //Collisione astronave
+//   2. bool [x, y terreno = coordinate proiettile]			//Collisione proiettile
+
+//TRA PROIETTILI: 
+//In nome del 3d, i due (o più) moti rimangono invariati;
+//l'array dinamico considera i singoli proiettili e NON i riquadri
+
+//CON L'AMBIENTE: 
+//1. Se un proiettile di astronave colpisce il terreno, il proiettile scompare
+//2. Se un proiettile di astronave colpisce un bunker, proiettile e bunker scompaiono
+//3. Se un proiettile di Bunker colpisce l'astronave, il proiettile scompare e 
+//   la vita dell'astronave decrementa
+//
+//NB Rendere i proiettili più veloci dell'astronave; una velocità unica per tutti funge
